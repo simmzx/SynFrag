@@ -1,3 +1,5 @@
+![AUR License](https://img.shields.io/aur/license/create-react-app?style=flat) [![我是徽章](https://img.shields.io/badge/simmzx💤%E7%9A%84-GitHub-brightgreen)](https://github.com/simmzx💤/My_Documentation)
+
 # FARScore: Molecular Synthetic Accessibility Predictor
 > Fragment Assembly autoRegressive based synthetic accessibility scorer to accelerate drug discovery
 ## 🎯 What Makes FARScore Different
