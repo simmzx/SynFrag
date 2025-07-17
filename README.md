@@ -1,114 +1,93 @@
-# FARScore: Fragment Assembly autoRegressive based Molecule Synthetic Accessibility Score
-_Advancing molecular synthetic accessibility predictor through fragment assembly autoregressive pretraining_
-## 🎯 Overview
-FARScore revolutionizes molecule synthetic accessibility prediction by leveraging the power of fragment assembly autoregressive pretraining. Unlike traditional approaches that directly learn synthesis patterns, FARScore first masters the fundamental art of molecular construction—understanding how molecules are assembled from fragments—before applying this knowledge to predict synthetic accessibility.
+# FARScore: Molecular Synthetic Accessibility Predictor
+> Fragment Assembly autoRegressive based synthetic accessibility scorer to accelerate drug discovery
+## 🎯 What Makes FARScore Different
+FARScore revolutionizes synthetic accessibility prediction through **fragment assembly autoregressive pretraining**. Unlike traditional approaches that directly learn synthesis patterns, FARScore first masters molecular construction fundamentals—understanding how molecules are assembled from fragments—then applies this knowledge to predict synthetic accessibility.
+### Two-Stage Learning:
+* **Stage 1**: Pretrain on 9.2M unlabeled molecules to learn molecular assembly patterns
+* **Stage 2**: Finetune on 800K labeled molecules for synthetic accessibility prediction
 
-FARScore allows you to batch predict the synthetic accessibility of molecules using `farscore.py`, which is used to enrich for easy-to-synthesize molecules and exclude hard-to-synthesize molecules, speeding up the drug discovery process. `farscore_pretrain.py`allows you to pretrain the model with a customized dataset, and `farscore_finetune.py`for your downstream tasks finetune.
+This mirrors human chemical intuition: experienced chemists understand molecular construction before assessing synthetic difficulty.
 
-## 🧠 Core Innovation
-### Fragment Assembly autoRegressive Pretraining and Finetuning
-#### Stage 1: Pretraining
-* Pretrain on 9.2 million unlabeled commercially available molecules
-- Learn intrinsic molecular assembly patterns through autoregressive fragment reconstruction
-* Capture deep structural and chemical knowledge about how molecules are constructed
-- Build a foundation of molecular "construction grammar"
-#### Stage 2: Finetuning
-* Finetune on 800K labeled molecules (balanced dataset: 50% easy, 50% hard to synthesize)
-- Applie fragment assembly knowledge to synthetic accessibility prediction
-* Transform structural understanding into practical synthetic accessibility assessment
-
-Our approach mirrors human chemical intuition: experienced chemists first understand how molecules are built before they can assess synthetic difficulty
-
-## 🛠️ Requirement
-    # Clone the repository
-    git clone https://github.com/simmzx/FARScore.git
-    cd FARScore
-#### Option 1: pip installation
-    conda create -n FARScore python=3.8
-    conda activate FARScore
-
-    # Install all dependencies
-    pip install -r requirements.txt
-
-#### Option 2: conda installation (recommended)
-    conda create -n FARScore python=3.8
-    conda activate FARScore
-
-    # Install chemistry and graph libraries via conda
-    conda install -c conda-forge rdkit
-    conda install -c dglteam dgl
-    conda install -c deepchem deepchem
-
-    # Install remaining dependencies via pip
-    pip install torch>=1.12.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-    pip install torch-geometric torch-cluster torch-scatter torch-sparse torch-spline-conv
-    pip install numpy pandas scipy scikit-learn tqdm matplotlib seaborn
-
-Note: Make sure your Python version is between 3.8 and 3.10, some cheminformatics libraries may not support the latest version of Python.
+## ✨  Key Features
+* Easy Integration - Simple CSV input/output format
+* Batch Prediction - One-click synthetic accessibility scoring
+* High Accuracy - Achieves SOTA performance on multiple test sets with key metrics including accuracy, AUROC and specificity.
 
 ## 🚀 Quick Start
-### FARScore Usage: Predicting Synthetic Accessibility
-#### Step 1: Prepare Your Data
-Create a csv file with SMILES strings. For example, `molecules.csv`:
+### 1. Installation
+```python
+    # Clone repository
+    git clone https://github.com/simmzx/FARScore.git
+    cd FARScore
+
+    # Create environment and install dependencies
+    conda create -n FARScore python=3.8
+    conda activate FARScore
+    pip install -r requirements.txt
+```
+### 2. Prepare Data
+Create CSV file with SMILES column:
 molecule_id  | smiles|
 :---------: | :--------:|
 Palbociclib  | CC1=C(C(=O)N(C2=NC(=NC=C12)NC3=NC=C(C=C3)N4CCNCC4)C5CCCC5)C(=O)C |
-Melonine  | CCC12CCCN3C1C4C5=CC=CC=C5NC4(CC2)CC3 |
-Fostamatinib  | CC1(C(=O)N(C2=C(O1)C=CC(=N2)NC3=NC(=NC=C3F)NC4=CC(=C(C(=C4)OC)OC)OC)COP(=O)(O)O)C |
-#### Step 2: Run FARScore
-Use `farscore.py` to calculate FARScore values:
-
+(+)-Eburnamonine  | [C@]12(C3=C4CCN1CCC[C@@]2(CC(=O)N3C1C4=CC=CC=1)CC)[H] |
+### 3. Run Prediction
+```python
     python farscore.py \
         --input_file molecules.csv \
         --output_file predictions.csv \
         --input_model_file checkpoints/farscore_default.pth \
-        --smiles_field smiles \
-        --batch_size 32 \
-        --device 0
-#### Step 3: Interpret Results 
-The output csv file will contain your original data plus a new farscore column:
+```
+### 4: View Results
+Output file will contain FARScore values:
 | molecule_id | smiles  | farscore |
 | :------------: |:---------------:|:-----:|
 | Palbociclib      | CC1=C(C(=O)N(C2=NC(=NC=C12)NC3=NC=C(C=C3)N4CCNCC4)C5CCCC5)C(=O)C | 0.945263371 |
-| Melonine      | CCC12CCCN3C1C4C5=CC=CC=C5NC4(CC2)CC3        |   0.046878994 |
-| Fostamatinib | CC1(C(=O)N(C2=C(O1)C=CC(=N2)NC3=NC(=NC=C3F)NC4=CC(=C(C(=C4)OC)OC)OC)COP(=O)(O)O)C        |    0.81210579 |
+| (+)-Eburnamonine | [C@]12(C3=C4CCN1CCC[C@@]2(CC(=O)N3C1C4=CC=CC=1)CC)[H]        |    0.02855128 |
 
-FARScore Values:
-* Close to 1.0: Easy to synthesize
-- Close to 0.0: Hard to synthesize
-* Threshold 0.5: Binary classification cutoff (>0.5 = Easy, <0.5 = Hard)
+**Score Interpretation:**
+* Close to 1: Easy to synthesize
+- Close to 0: Hard to synthesize
+* Threshold 0.5: Binary classification cutoff
 
-### Advanced Custom Usage: Pretrain & Finetune
-#### Fragment Assembly autoRegressive Pretraining
-If you want to pretrain the model on your own molecular dataset:
-
+## 📖 Advanced Usage
+Custom Pretraining and Finetuning task
+### Pretrain Model
+```python
     python farscore_pretrain.py \
         --dataset data/train_dataset/pretrain/smiles.txt \
         --vocab data/train_dataset/pretrain/fragment.txt \
-        --output_model_file checkpoints/my_pretrained_model \
+        --output_model_file checkpoints/pretrained_gnn.pth \
         --epochs 100 \
-        --batch_size 16 \
-        --lr 0.01 \
-        --device 0
-* `smiles.txt`: Text file with one SMILES string per line
-- `fragment.txt`: Vocabulary file containing molecular fragments (Generated by `scripts/utils/mol/cls.py`)
-* Ensure you have sufficient computational resources (GPU recommended)
-#### Synthetic Accessibility Finetuning
-To finetune a pretrained model for synthetic accessibility prediction or any other downstream task:
-
+```
+### Finetune Model
+```python
     python farscore_finetune.py \
         --input_model_file checkpoints/pretrained_gnn.pth \
         --dataset data/train_dataset/finetune/dataset.csv \
         --epochs 200 \
-        --batch_size 16 \
-        --gnn_lr 0.01 \
-        --pool_fullconnect_lr 0.001 \
-        --device 0 \
-        --runseed 731
+```
+## 🔧 Parameters
+| Parameter | Description  | Default |
+| :------------ |:---------------| :-----|
+| `--input_file`      | Input CSV file path | Required |
+| `--output_file`      | Output CSV file path        |   Required |
+| `--input_model_file` | Pretrained model path        |    Required |
+| `--smiles_field` | SMILES column name        |    "smiles" |
+| `--batch_size` | Batch processing size        |    32 |
+| `--device` | GPU device number        |    0 |
 
-## :link: Citation
+## 📋 Requirements
+* Python 3.8-3.10
+* CUDA-enabled GPU (recommended)
+* Key dependencies: PyTorch, RDKit, DGL, DeepChem
+
+## 📄 Citation
 If you find this work useful for your research, please cite our paper:
 
 
+
 ## :email: Contact
-If you have any questions, please feel free to contact Xiang Zhang (Email: zhangxiang@simm.ac.cn)
+For questions, please contact: Xiang Zhang (Email: zhangxiang@simm.ac.cn)
+______________________________________________________________________________________________________
+🌟 **Like this project? Give us a Star**
