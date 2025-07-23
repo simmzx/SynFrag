@@ -1,0 +1,49 @@
+# FARScore Requirements
+# Usage: pip install -r requirements.txt
+# Python 3.8+ | Virtual environment recommended
+# GPU: pip install torch --index-url https://download.pytorch.org/whl/cu102
+
+# Notification:
+# Some packages may require specific system library support
+# Recommended to be installed in a virtual environment
+# If you encounter installation problems, please refer to the project documentation
+
+# Deep Learning
+torch>=1.12.0
+torch-cluster>=1.6.0
+torch-geometric>=2.3.0
+torch-scatter>=2.1.0
+torch-sparse>=0.6.15
+torch-spline-conv>=1.2.1
+torchmetrics>=1.1.0
+
+# Graph Neural Networks
+dgl>=0.6.1
+dgllife>=0.2.9
+
+# Cheminformatics
+rdkit>=2022.3.0
+deepchem>=2.6.0
+
+# Scientific Computing
+numpy>=1.21.0,<2.0.0
+pandas>=1.3.0,<3.0.0
+scipy>=1.7.0,<2.0.0
+scikit-learn>=1.0.0,<2.0.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.12.0
+pillow>=9.0.0
+
+# Data Processing
+openpyxl>=3.1.0
+requests>=2.31.0
+tqdm>=4.60.0
+pyyaml>=6.0.0
+
+# Optional: TensorFlow (comment out if not needed)
+# tensorflow>=2.10.0,<3.0.0
+
+# Performance
+numba>=0.57.0
