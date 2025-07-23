@@ -35,10 +35,7 @@ Palbociclib  | CC1=C(C(=O)N(C2=NC(=NC=C12)NC3=NC=C(C=C3)N4CCNCC4)C5CCCC5)C(=O)C 
 (+)-Eburnamonine  | [C@]12(C3=C4CCN1CCC[C@@]2(CC(=O)N3C1C4=CC=CC=1)CC)[H] |
 ### 3. Run Prediction
 ```python
-    python farscore.py \
-        --input_file molecules.csv \
-        --output_file predictions.csv \
-        --input_model_file checkpoints/farscore_default.pth \
+    python farscore.py --input_file example.csv
 ```
 ### 4: View Results
 Output file will contain FARScore values:
