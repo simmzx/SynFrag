@@ -3,7 +3,7 @@
 # FARScore: Molecular Synthetic Accessibility Predictor
 > Fragment Assembly autoRegressive based synthetic accessibility scorer to accelerate drug discovery
 ## 🎯 What Makes FARScore Different
-FARScore revolutionizes synthetic accessibility prediction through **fragment assembly autoregressive pretraining**. Unlike traditional approaches that directly learn synthesis patterns, FARScore first masters molecular construction fundamentals—understanding how molecules are assembled from fragments—then applies this knowledge to predict synthetic accessibility.
+FARScore revolutionizes synthetic accessibility prediction through **Fragment Assembly autoRegressive pretraining**. Unlike traditional approaches that directly learn synthesis patterns, FARScore first masters molecular construction fundamentals—understanding how molecules are assembled from fragments—then applies this knowledge to predict synthetic accessibility.
 ### Two-Stage Learning:
 * **Stage 1**: Pretrain on 9.2M unlabeled molecules to learn molecular assembly patterns
 * **Stage 2**: Finetune on 800K labeled molecules for synthetic accessibility prediction
