@@ -31,7 +31,7 @@ Upload online the CSV file containing the molecules to be predicted, where the m
     pip install -r requirements.txt
 ```
 ### 2. Prepare Data
-Create CSV file with SMILES column:
+Create CSV file with "smiles" field:
 molecule_id  | smiles|
 :---------: | :--------:|
 Palbociclib  | CC1=C(C(=O)N(C2=NC(=NC=C12)NC3=NC=C(C=C3)N4CCNCC4)C5CCCC5)C(=O)C |
