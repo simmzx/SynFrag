@@ -38,7 +38,7 @@ def get_version():
             for line in f:
                 if line.startswith('__version__'):
                     return line.split('=')[1].strip().strip('"\'')
-    return "1.0.0" 
+    return "1.0.1" 
 
 DESCRIPTION = "FARScore: A Synthetic Accseeibility Predictor based Fragment Assembly autoRegressive pretrain"
 LONG_DESCRIPTION = read_readme()
@@ -97,6 +97,7 @@ ENTRY_POINTS = {
         'farscore=model.farscore:main',
         'farscore-pretrain=model.farscore_pretrain:main',
         'farscore-finetune=model.farscore_finetune:main',
+        'farscore-cli=model.cli:main',
     ],
 }
 
