@@ -1,4 +1,7 @@
-![AUR License](https://img.shields.io/aur/license/create-react-app?style=flat) [![我是徽章](https://img.shields.io/badge/simmzx💤%E7%9A%84-GitHub-brightgreen)](https://github.com/simmzx💤/My_Documentation)
+[![AIDD](https://img.shields.io/badge/🧬%20AIDD-Synthetic%20Accessibility-4CAF50?style=flat)](https://github.com/simmzx)
+[![PyPI](https://img.shields.io/badge/PyPI-farscore%20v1.0.1-306998?style=flat&logo=pypi&logoColor=white)](https://pypi.org/project/farscore/)
+[![GitHub](https://img.shields.io/badge/simmzx💤-181717?style=flat&logo=github&logoColor=white)](https://github.com/simmzx)[![Email](https://img.shields.io/badge/📧Email-1E88E5?style=flat)](mailto:zhangxiang@simm.ac.cn?subject=Regarding%20FARScore)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # FARScore: Molecular Synthetic Accessibility Predictor
 > Fragment Assembly autoRegressive based synthetic accessibility scorer to accelerate drug discovery
@@ -87,7 +90,7 @@ Note: `gnn_pretrained.pth` is a model saved in pretraining stage, `dataset.csv` 
 If this program is useful to you, please cite our paper:
 
 
-## :email: Contact
+## 📧 Contact
 For questions, please contact: Xiang Zhang (Email: zhangxiang@simm.ac.cn)
 ______________________________________________________________________________________________________
 🌟 **Like this project? Give us a Star**
