@@ -37,8 +37,16 @@ molecule_id  | smiles|
 Palbociclib  | CC1=C(C(=O)N(C2=NC(=NC=C12)NC3=NC=C(C=C3)N4CCNCC4)C5CCCC5)C(=O)C |
 (+)-Eburnamonine  | [C@]12(C3=C4CCN1CCC[C@@]2(CC(=O)N3C1C4=CC=CC=1)CC)[H] |
 ### 3. Run Prediction
+CSV File Mode
 ```python
     python farscore.py --input_file example.csv
+```
+Direct SMILES Mode
+```python
+    # Single molecule
+    python farscore.py --smiles "CCO"
+    # Multiple molecules
+    python farscore.py --smiles "CCO" "CC(=O)O" "c1ccccc1"
 ```
 ### 4. View Results
 Output file will contain FARScore values:
@@ -68,7 +76,7 @@ Note: `smiles.txt` contains unlabeled molecules, `fragment.txt` is a fragment vo
         --input_model_file gnn_pretrained.pth \
         --dataset dataset.csv
 ```
-Note: `gnn_pretrained.pth` is the model saved in the pretrain, `dataset.csv` contains labeled molecules for finetune on specific downstream task.
+Note: `gnn_pretrained.pth` is a model saved in pretraining stage, `dataset.csv` contains labeled molecules for finetune on specific downstream task.
 
 ## 🔧 Requirements
 * Python 3.8-3.10
