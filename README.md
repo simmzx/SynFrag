@@ -15,8 +15,8 @@ This mirrors human chemical intuition: experienced chemists understand molecular
 * Batch Prediction - One-click synthetic accessibility scoring
 * High Accuracy - Achieves SOTA performance on multiple test sets with key metrics including accuracy, AUROC and specificity.
 
-## 💻 Online Service
-Upload online the CSV file containing the molecules to be predicted, where the molecule SMILES needs to be in the “smiles” field, and FARScore will return the CSV file containing the synthetic accessibility prediction results.
+## 🌐 Online Service
+**Instant molecular synthesis prediction in the cloud.** Simply upload your CSV file with SMILES and receive AI-powered synthetic accessibility scores in seconds.
 
 ## 🚀 Quick Start
 ### 1. Installation
