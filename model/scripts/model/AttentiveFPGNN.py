@@ -291,7 +291,9 @@ class GNNLayer(nn.Module):
         return self.attentive_gru(g, logits, node_feats)
 
         class AttentiveFPGNN(nn.Module):
-    """`Pushing the Boundaries of Molecular Representation for Drug Discovery with the Graph
+
+    """
+    `Pushing the Boundaries of Molecular Representation for Drug Discovery with the Graph
     Attention Mechanism <https://www.ncbi.nlm.nih.gov/pubmed/31408336>`__
 
     This class performs message passing in AttentiveFP and returns the updated node representations.
