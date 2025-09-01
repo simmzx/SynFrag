@@ -1,4 +1,4 @@
-# FARScore Requirements
+# SynFrag Requirements
 # Usage: pip install -r requirements.txt
 # Python 3.8+ | Virtual environment recommended
 # GPU: pip install torch --index-url https://download.pytorch.org/whl/cu102
@@ -46,4 +46,5 @@ pyyaml>=6.0.0
 # tensorflow>=2.10.0,<3.0.0
 
 # Performance
+
 numba>=0.57.0
