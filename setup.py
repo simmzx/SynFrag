@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Setup script for SynFrag - Fragment Assembly autoRegressive pretraining based Synthetic Accessibility Predictor
+Setup script for SynFrag - Synthetic Accessibility via Fragment Assembly Generation
 """
 
 import os
@@ -41,7 +41,7 @@ def get_version():
                     return line.split('=')[1].strip().strip('"\'')
     return "1.0.0"  # 更新为新版本号
 
-DESCRIPTION = "SynFrag: A Synthetic Accessibility Predictor based Fragment Assembly autoRegressive pretrain"
+DESCRIPTION = "SynFrag: Synthetic Accessibility via Fragment Assembly Generation"
 LONG_DESCRIPTION = read_readme()
 VERSION = get_version()
 AUTHOR = "Xiang Zhang"
