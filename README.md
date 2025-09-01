@@ -91,6 +91,6 @@ If this program is useful to you, please cite our paper:
 
 
 ## 📧 Contact
-For questions, please contact: Xiang Zhang (Email: zhangxiang@simm.ac.cn)
+For technical support, please contact: Xiang Zhang (Email: zhangxiang@simm.ac.cn)
 ______________________________________________________________________________________________________
 🌟 **Like this project? Give us a Star**
