@@ -3,10 +3,10 @@
 [![GitHub](https://img.shields.io/badge/simmzx💤-181717?style=flat&logo=github&logoColor=white)](https://github.com/simmzx)[![Email](https://img.shields.io/badge/📧Email-1E88E5?style=flat)](mailto:zhangxiang@simm.ac.cn?subject=Regarding%20FARScore)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# FARScore: Molecular Synthetic Accessibility Predictor
-> Fragment Assembly autoRegressive based synthetic accessibility scorer to accelerate drug discovery
-## 🎯 What Makes FARScore Different
-FARScore revolutionizes synthetic accessibility prediction through **Fragment Assembly autoRegressive pretraining**. Unlike traditional approaches that directly learn synthesis patterns, FARScore first masters molecular construction fundamentals—understanding how molecules are assembled from fragments—then applies this knowledge to predict synthetic accessibility.
+# SynFrag: Synthetic Accessibility via Fragment Assembly Generation
+> Predict the synthetic accessibility of molecules like an experienced synthetic chemist
+## 🎯 What Makes SynFrag Different
+SynFrag revolutionizes synthetic accessibility prediction through **Pre-training strategy for generating molecules via fragment autoregressive assembly**. Unlike traditional approaches that directly learn synthesis patterns, SynFrag first masters molecular construction fundamentals—understanding how molecules are assembled from fragments—then applies this knowledge to predict synthetic accessibility.
 ### Two-Stage Learning:
 * **Stage 1**: Pretrain on 9.2M unlabeled molecules to learn molecular assembly patterns
 * **Stage 2**: Finetune on 800K labeled molecules for synthetic accessibility prediction
@@ -25,12 +25,12 @@ This mirrors human chemical intuition: experienced chemists understand molecular
 ### 1. Installation
 ```python
     # Clone repository
-    git clone https://github.com/simmzx/FARScore.git
-    cd ../FARScore
+    git clone https://github.com/simmzx/SynFrag.git
+    cd ../SynFrag
 
     # Create environment and install dependencies
-    conda create -n FARScore python=3.8
-    conda activate FARScore
+    conda create -n SynFrag python=3.8
+    conda activate SynFrag
     pip install -r requirements.txt
 ```
 ### 2. Prepare Data
@@ -42,23 +42,23 @@ Palbociclib  | CC1=C(C(=O)N(C2=NC(=NC=C12)NC3=NC=C(C=C3)N4CCNCC4)C5CCCC5)C(=O)C 
 ### 3. Run Prediction
 CSV File Mode
 ```python
-    python farscore.py --input_file example.csv
+    python synfrag.py --input_file example.csv
 ```
 Direct SMILES Mode
 ```python
     # Single molecule
-    python farscore.py --smiles "CCO"
+    python synfrag.py --smiles "CCO"
     # Multiple molecules
-    python farscore.py --smiles "CCO" "CC(=O)O" "c1ccccc1"
+    python synfrag.py --smiles "CCO" "CC(=O)O" "c1ccccc1"
 ```
 ### 4. View Results
-Output file will contain FARScore values:
-| molecule_id | smiles  | farscore |
+Output file will contain SynFrag values:
+| molecule_id | smiles  | synfrag |
 | :------------: |:---------------:|:-----:|
 | Palbociclib      | CC1=C(C(=O)N(C2=NC(=NC=C12)NC3=NC=C(C=C3)N4CCNCC4)C5CCCC5)C(=O)C | 0.9453 |
 | (+)-Eburnamonine | [C@]12(C3=C4CCN1CCC[C@@]2(CC(=O)N3C1C4=CC=CC=1)CC)[H]        |    0.0286 |
 
-**FARScore Interpretation:**
+**SynFrag Interpretation:**
 * Close to 1: Easy to synthesize
 - Close to 0: Hard to synthesize
 * Threshold 0.5: Binary classification cutoff
@@ -67,7 +67,7 @@ Output file will contain FARScore values:
 Custom Pretraining and Finetuning task
 ### Pretrain Model
 ```python
-    python farscore_pretrain.py \
+    python synfrag_pretrain.py \
         --dataset smiles.txt \
         --vocab fragment.txt 
 ```
@@ -75,7 +75,7 @@ Note: `smiles.txt` contains unlabeled molecules, `fragment.txt` is a fragment vo
 
 ### Finetune Model
 ```python
-    python farscore_finetune.py \
+    python synfrag_finetune.py \
         --input_model_file gnn_pretrained.pth \
         --dataset dataset.csv
 ```
