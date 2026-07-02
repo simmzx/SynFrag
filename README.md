@@ -2,7 +2,7 @@
 [![PyPI](https://img.shields.io/badge/PyPI-synfrag%20v1.0.0-306998?style=flat&logo=pypi&logoColor=white)](https://pypi.org/project/synfrag/)
 [![GitHub](https://img.shields.io/badge/simmzx💤-181717?style=flat&logo=github&logoColor=white)](https://github.com/simmzx)[![Email](https://img.shields.io/badge/📧Email-1E88E5?style=flat)](mailto:zhangxiang@simm.ac.cn)
 [![WeChat](https://img.shields.io/badge/WeChat-07C160?style=flat&logo=wechat&logoColor=white)](https://github.com/simmzx/simmzx/blob/main/QRcode.jpg)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <img align="right" src="https://komarev.com/ghpvc/?username=Shrichackran&label=Views&color=blue" />
 
 <h1 align="center">  SynFrag  </h1>
 <h3 align="center"> Synthetic Accessibility Predictor based on Fragment Assembly Generation  <br>
