@@ -122,7 +122,7 @@ This vocabulary defines the label space for the autoregressive assembly task, ca
 ## 🤗 Citation
 If you find this repository and our paper useful, we kindly request to cite our work.
 ```BibTex
-@article{zhang2025synfrag,
+@article{zhang2026synfrag,
   title={SynFrag: Synthetic Accessibility Predictor based on Fragment Assembly Generation in Drug Discovery},
   author={Zhang, Xiang and Liu, Jia and Xu, Bufan and Zhang, Zihan and Huang, Zifu and Chen, Kaixian and Wang, Dingyan and Li, Xutong},
   journal={Journal of Chemical Information and Modeling},
